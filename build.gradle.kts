@@ -1,19 +1,20 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.9.22"
-    kotlin("plugin.spring") version "1.9.22" apply false
-    id("org.springframework.boot") version "3.2.3" apply false
-    id("io.spring.dependency-management") version "1.1.4" apply false
+    kotlin("jvm")
+    kotlin("plugin.spring") apply false
+    id("org.springframework.boot") apply false
+    id("io.spring.dependency-management")
 }
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17
 }
-
+val projectGroup: String by project
+val applicationVersion: String by project
 allprojects {
-    group = "io.dodn.demo"
-    version = "0.0.1-SNAPSHOT"
+    group = projectGroup
+    version = applicationVersion
 
     repositories {
         mavenCentral()
@@ -25,6 +26,13 @@ subprojects {
     apply(plugin = "org.jetbrains.kotlin.plugin.spring")
     apply(plugin = "org.springframework.boot")
     apply(plugin = "io.spring.dependency-management")
+
+    dependencyManagement {
+        val springCloudDependenciesVersion: String by project
+        imports {
+            mavenBom("org.springframework.cloud:spring-cloud-dependencies:2022.0.5")
+        }
+    }
 
     dependencies {
 //        implementation("org.springframework.boot:spring-boot-starter-web")

@@ -1,0 +1,20 @@
+spring.application.name: hello-spring-api
+spring.profiles.active: local # profile 기본값 Local
+
+---
+spring.config.activate.on-profile: local
+
+---
+spring.config.activate.on-profile: local-dev
+
+---
+spring.config.activate.on-profile: dev
+
+---
+spring.config.activate.on-profile: staging
+
+---
+spring.config.activate.on-profile: live  # 추후에 사용할 설정 미리 세팅
+
+
+
