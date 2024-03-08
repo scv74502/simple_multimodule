@@ -9,6 +9,9 @@ tasks.getByName("jar") {
 }
 
 dependencies {
+    implementation(project(":support:logging"))
     implementation("org.springframework.boot:spring-boot-starter-web")
-//    implementation("org.springframework.boot:sleuth")
+
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    runtimeOnly("org.mariadb.jdbc.Driver")
 }

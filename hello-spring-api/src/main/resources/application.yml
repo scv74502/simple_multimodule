@@ -1,6 +1,11 @@
 spring.application.name: hello-spring-api
 spring.profiles.active: local # profile 기본값 Local
 
+spring:
+  config:
+    import:
+      - logging.yaml
+      - db-main.yaml
 ---
 spring.config.activate.on-profile: local
 

@@ -1,7 +1,8 @@
 rootProject.name = "hello-spring"
 
 include(
-    "hello-spring-api"
+    "hello-spring-api",
+    "support:logging"
 )
 
 pluginManagement {
